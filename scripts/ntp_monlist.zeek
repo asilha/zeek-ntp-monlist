@@ -1,5 +1,8 @@
 module NTP;
 
+@load-plugin BR_UFRGS_INF::RNA
+@load BR_UFRGS_INF/RNA/main
+
 export {
 	redef enum Notice::Type += {
 		NTP_Monlist_Queries,
@@ -54,9 +57,9 @@ event ntp_message(c: connection, is_orig: bool, msg: NTP::Message)
 # 2nd approach: 
 	# Offload this processing to the DP. 
 
-event rna_ntp_monlist(c: connection, is_orig: bool, msg: BR_UFRGS_INF::RNA::Message)
+event rna_ntp_monlist(c: connection, is_orig: bool) # , msg: BR_UFRGS_INF::RNA::Message)
 	{
-		NOTICE([$note=BR_UFRGS_INF::RNA::NTP_Monlist_Detected,
+		NOTICE([$note=NTP::NTP_Monlist_Queries, # fmt("BR_UFRGS_INF::RNA::NTP_Monlist_Detected"),
 				$conn=c,
 				$suppress_for=6hrs,
 				$msg=fmt("Houston!"),
