@@ -47,7 +47,7 @@ event ntp_message(c: connection, is_orig: bool, msg: NTP::Message)
 
 			NOTICE([$note=NTP::NTP_Monlist_Queries,
 				$conn=c,
-				$suppress_for=6hrs,
+				$suppress_for=0hrs,#6hrs,
 				$msg=fmt("NTP monlist queries"),
 				$identifier=cat(c$id$orig_h)]);
 			}
