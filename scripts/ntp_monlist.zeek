@@ -59,9 +59,9 @@ event ntp_message(c: connection, is_orig: bool, msg: NTP::Message)
 
 event rna_ntp_monlist(c: connection, is_orig: bool) # , msg: BR_UFRGS_INF::RNA::Message)
 	{
-		NOTICE([$note=NTP::NTP_Monlist_Queries, # fmt("BR_UFRGS_INF::RNA::NTP_Monlist_Detected"),
+		NOTICE([$note=RNA::NTP_Monlist_Detected, # fmt("BR_UFRGS_INF::RNA::NTP_Monlist_Detected"),
 				$conn=c,
-				$suppress_for=6hrs,
-				$msg=fmt("Houston!"),
+				$suppress_for=0hrs,
+				$msg=fmt("RNA: NTP monlist detected!"),
 				$identifier=cat(c$id$orig_h)]);
 	}
