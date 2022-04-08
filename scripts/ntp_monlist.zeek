@@ -1,8 +1,5 @@
 module NTP;
 
-# @load-plugin BR_UFRGS_INF::RNA
-# @load BR_UFRGS_INF/RNA/main
-
 export {
 	redef enum Notice::Type += {
 		NTP_Monlist_Queries,
